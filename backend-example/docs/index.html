@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MR Cleaner API - Документация</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #0066cc;
+        }
+        .endpoint {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .method {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .get {
+            background-color: #61affe;
+        }
+        .post {
+            background-color: #49cc90;
+        }
+        .put {
+            background-color: #fca130;
+        }
+        .delete {
+            background-color: #f93e3e;
+        }
+        .url {
+            font-family: monospace;
+            font-size: 16px;
+        }
+        .auth {
+            font-size: 14px;
+            margin-left: 10px;
+            padding: 2px 8px;
+            border-radius: 3px;
+            background-color: #e8f4f8;
+            color: #0066cc;
+        }
+        .admin {
+            font-size: 14px;
+            margin-left: 10px;
+            padding: 2px 8px;
+            border-radius: 3px;
+            background-color: #f8e8e8;
+            color: #cc0000;
+        }
+        .params {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .section {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>MR Cleaner API - Документация</h1>
+    
+    <p>
+        Версия API: 1.0.0<br>
+        Базовый URL: <code>/backend</code>
+    </p>
+    
+    <h2>Содержание</h2>
+    <ul>
+        <li><a href="#auth">Авторизация и регистрация</a></li>
+        <li><a href="#application">Заявки</a></li>
+        <li><a href="#orders">Заказы</a></li>
+        <li><a href="#type-cleaning">Типы уборки</a></li>
+        <li><a href="#cleaning">Виды уборки</a></li>
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#article">Статьи</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+    </ul>
+    
+    <div class="section" id="auth">
+        <h2>1. Авторизация и регистрация</h2>
+        
+        <div class="endpoint">
+            <h3>
+                <span class="method post">POST</span>
+                <span class="url">/auth/login</span>
+            </h3>
+            <p>Авторизация пользователя и получение JWT токена</p>
+            
+            <div class="params">
+                <h4>Входные данные:</h4>
+                <table>
+                    <tr>
+                        <th>Параметр</th>
+                        <th>Тип</th>
+                        <th>Описание</th>
+                    </tr>
+                    <tr>
+                        <td>email</td>
+                        <td>string</td>
+                        <td>Email адрес пользователя</td>
+                    </tr>
+                    <tr>
+                        <td>password</td>
+                        <td>string</td>
+                        <td>Пароль пользователя</td>
+                    </tr>
+                </table>
+                
+                <h4>Ответ:</h4>
+                <pre><code>{
+    "success": true,
+    "message": "Вы успешно авторизованы",
+    "data": {
+        "token": "JWT token",
+        "user": {
+            "id_users": 1,
+            "FIO": "Имя пользователя",
+            "email": "user@example.com",
+            "phone": "+7 (999) 999-99-99",
+            "room_area": 50,
+            "is_admin": 0,
+            "created_at": "2023-01-01 12:00:00",
+            "updated_at": "2023-01-01 12:00:00"
+        }
+    }
+}</code></pre>
+            </div>
+        </div>
+        
+        <div class="endpoint">
+            <h3>
+                <span class="method post">POST</span>
+                <span class="url">/auth/register</span>
+            </h3>
+            <p>Регистрация нового пользователя</p>
+            
+            <div class="params">
+                <h4>Входные данные:</h4>
+                <table>
+                    <tr>
+                        <th>Параметр</th>
+                        <th>Тип</th>
+                        <th>Описание</th>
+                    </tr>
+                    <tr>
+                        <td>FIO</td>
+                        <td>string</td>
+                        <td>ФИО пользователя</td>
+                    </tr>
+                    <tr>
+                        <td>email</td>
+                        <td>string</td>
+                        <td>Email адрес пользователя</td>
+                    </tr>
+                    <tr>
+                        <td>phone</td>
+                        <td>string</td>
+                        <td>Номер телефона пользователя</td>
+                    </tr>
+                    <tr>
+                        <td>password</td>
+                        <td>string</td>
+                        <td>Пароль пользователя</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="endpoint">
+            <h3>
+                <span class="method get">GET</span>
+                <span class="url">/auth/profile</span>
+                <span class="auth">auth</span>
+            </h3>
+            <p>Получение данных профиля пользователя</p>
+            
+            <div class="params">
+                <h4>Заголовки:</h4>
+                <table>
+                    <tr>
+                        <th>Заголовок</th>
+                        <th>Значение</th>
+                    </tr>
+                    <tr>
+                        <td>Authorization</td>
+                        <td>Bearer {JWT token}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="endpoint">
+            <h3>
+                <span class="method put">PUT</span>
+                <span class="url">/auth/profile</span>
+                <span class="auth">auth</span>
+            </h3>
+            <p>Обновление данных профиля пользователя</p>
+            
+            <div class="params">
+                <h4>Заголовки:</h4>
+                <table>
+                    <tr>
+                        <th>Заголовок</th>
+                        <th>Значение</th>
+                    </tr>
+                    <tr>
+                        <td>Authorization</td>
+                        <td>Bearer {JWT token}</td>
+                    </tr>
+                </table>
+                
+                <h4>Входные данные:</h4>
+                <table>
+                    <tr>
+                        <th>Параметр</th>
+                        <th>Тип</th>
+                        <th>Описание</th>
+                        <th>Обязательный</th>
+                    </tr>
+                    <tr>
+                        <td>FIO</td>
+                        <td>string</td>
+                        <td>ФИО пользователя</td>
+                        <td>Нет</td>
+                    </tr>
+                    <tr>
+                        <td>phone</td>
+                        <td>string</td>
+                        <td>Номер телефона пользователя</td>
+                        <td>Нет</td>
+                    </tr>
+                    <tr>
+                        <td>room_area</td>
+                        <td>float</td>
+                        <td>Площадь помещения</td>
+                        <td>Нет</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Остальные разделы документации сокращены для краткости -->
+    <div class="section" id="application">
+        <h2>2. Заявки</h2>
+        <p>Этот раздел содержит описание API для работы с заявками на уборку.</p>
+        <!-- Аналогично описываются остальные методы -->
+    </div>
+    
+    <div class="section" id="orders">
+        <h2>3. Заказы</h2>
+        <p>Этот раздел содержит описание API для работы с заказами на уборку.</p>
+        <!-- Аналогично описываются остальные методы -->
+    </div>
+    
+    <div class="section" id="type-cleaning">
+        <h2>4. Типы уборки</h2>
+        <p>Этот раздел содержит описание API для работы с типами уборки.</p>
+        <!-- Аналогично описываются остальные методы -->
+    </div>
+    
+    <div class="section" id="cleaning">
+        <h2>5. Виды уборки</h2>
+        <p>Этот раздел содержит описание API для работы с видами уборки.</p>
+        <!-- Аналогично описываются остальные методы -->
+    </div>
+    
+    <div class="section" id="services">
+        <h2>6. Услуги</h2>
+        <p>Этот раздел содержит описание API для работы с дополнительными услугами.</p>
+        <!-- Аналогично описываются остальные методы -->
+    </div>
+    
+    <div class="section" id="article">
+        <h2>7. Статьи</h2>
+        <p>Этот раздел содержит описание API для работы со статьями.</p>
+        <!-- Аналогично описываются остальные методы -->
+    </div>
+    
+    <div class="section" id="reviews">
+        <h2>8. Отзывы</h2>
+        <p>Этот раздел содержит описание API для работы с отзывами.</p>
+        <!-- Аналогично описываются остальные методы -->
+    </div>
+    
+    <footer style="margin-top: 50px; border-top: 1px solid #ddd; padding-top: 20px;">
+        <p>&copy; 2023 MR Cleaner API</p>
+    </footer>
+</body>
+</html> 
