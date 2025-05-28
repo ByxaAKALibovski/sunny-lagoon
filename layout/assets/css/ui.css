@@ -86,40 +86,88 @@
   }
 }
 
-.title__page{
+.title__page {
+  font-weight: 400;
+  font-size: 50px;
+  color: #4D5154;
+  font-family: "Lobster";
+  text-align: center;
+
+  &>span {
+    color: #0fb1c3;
     font-weight: 400;
     font-size: 50px;
-    color: #4D5154;
     font-family: "Lobster";
-
-    &>span{
-        color: #0fb1c3;
-    }
+  }
 }
 
-.card__def{
+.card__def {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  width: 100%;
+  gap: 10px;
+
+  &>img {
+    width: 600px;
+    height: 360px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+  }
+
+  &>h3 {
+    font-family: "Lobster";
+    font-weight: 400;
+    color: #0FB1C3;
+    font-size: 35px;
+  }
+
+  &>.btn {
+    margin-top: 20px;
+  }
+}
+
+.category__list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 60px 20px;
+
+  & li {
     display: flex;
     flex-direction: column;
     max-width: 600px;
     width: 100%;
     gap: 10px;
 
-    &>img{
-        width: 600px;
-        height: 360px;
-        object-fit: cover;
-        object-position: center;
-        border-radius: 10px;
+    & img {
+      width: 600px;
+      height: 360px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 10px;
     }
 
-    &>h3{
-        font-family: "Lobster";
-        font-weight: 400;
-        color: #0FB1C3;
-        font-size: 35px;
+    & h3 {
+      font-weight: 400;
+      font-family: "Lobster";
+      font-size: 35px;
+      color: #0FB1C3;
     }
 
-    &>.btn{
-        margin-top: 20px;
+    & p {
+      font-size: 20px;
     }
+
+    & .btn {
+      margin-top: 20px;
+    }
+  }
+}
+
+.title__sec {
+  font-family: "Lobster";
+  font-weight: 400;
+  font-size: 35px;
 }
