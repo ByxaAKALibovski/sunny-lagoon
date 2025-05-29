@@ -32,6 +32,8 @@ class CategoryController
             // Проверка данных
             $validation = validateData($data, [
                 'title' => 'required|min:3',
+                'short_title' => 'required|min:3',
+                'short_title_mult' => 'required|min:3',
                 'capacity' => 'required|numeric',
                 'description' => 'required|min:10',
                 'prev_text' => 'required|min:10'
@@ -44,6 +46,8 @@ class CategoryController
             // Подготовка данных для создания
             $categoryData = [
                 'title' => $data['title'],
+                'short_title' => $data['short_title'],
+                'short_title_mult' => $data['short_title_mult'],
                 'capacity' => $data['capacity'],
                 'description' => $data['description'],
                 'prev_text' => $data['prev_text'],
@@ -103,6 +107,8 @@ class CategoryController
             // Проверка данных
             $validation = validateData($data, [
                 'title' => 'required|min:3',
+                'short_title' => 'required|min:3',
+                'short_title_mult' => 'required|min:3',
                 'capacity' => 'required|numeric',
                 'description' => 'required|min:10',
                 'prev_text' => 'required|min:10'
@@ -115,6 +121,8 @@ class CategoryController
             // Подготовка данных для обновления
             $categoryData = [
                 'title' => $data['title'],
+                'short_title' => $data['short_title'],
+                'short_title_mult' => $data['short_title_mult'],
                 'capacity' => $data['capacity'],
                 'description' => $data['description'],
                 'prev_text' => $data['prev_text']

@@ -40,6 +40,8 @@ class Migrations
             CREATE TABLE IF NOT EXISTS category (
                 id_category INT AUTO_INCREMENT PRIMARY KEY,
                 title VARCHAR(255) NOT NULL,
+                short_title VARCHAR(255) NOT NULL,
+                short_title_mult VARCHAR(255) NOT NULL,
                 capacity INT NOT NULL,
                 description TEXT NOT NULL,
                 prev_text TEXT NOT NULL,
