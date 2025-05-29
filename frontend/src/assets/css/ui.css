@@ -1,0 +1,250 @@
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: fit-content;
+  background-color: #0fb1c3;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  padding: 10px 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: #fff;
+  font-style: normal;
+  font-weight: normal;
+  transition: 0.3s;
+
+  &:hover {
+    border-color: #0fb1c3;
+    background-color: transparent;
+    color: #0fb1c3;
+  }
+
+  &.active {
+    border-color: #0fb1c3;
+    background-color: transparent;
+    color: #0fb1c3;
+  }
+
+  &.btn__light {
+    background-color: #fff;
+    color: #242d36;
+
+    &:hover {
+      background-color: transparent;
+      color: #fff;
+      border-color: #fff;
+    }
+
+    &.active {
+      background-color: transparent;
+      color: #fff;
+      border-color: #fff;
+    }
+  }
+
+  &.btn__reverse {
+    background-color: transparent;
+    color: #0fb1c3;
+    border-color: #0fb1c3;
+
+    &:hover {
+      background-color: #0fb1c3;
+      color: #fff;
+      border-color: transparent;
+    }
+
+    &.active {
+      background-color: #0fb1c3;
+      color: #fff;
+      border-color: transparent;
+    }
+  }
+}
+
+.input__cust {
+  border: none;
+  outline: none;
+  background-color: #efefef;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  padding: 10px 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: #4d5154;
+  font-weight: 400;
+  width: 100%;
+
+  &::placeholder {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #4d5154;
+    font-weight: 400;
+  }
+
+  &:focus {
+    border-color: #0fb1c3;
+  }
+}
+
+textarea.input__cust{
+  resize: none;
+  height: 100px;
+}
+
+.input__cust[type="date"]{
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+}
+
+.input__block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.title__page {
+  font-weight: 400;
+  font-size: 50px;
+  color: #4D5154;
+  font-family: "Lobster";
+  text-align: center;
+
+  &>span {
+    color: #0fb1c3;
+    font-weight: 400;
+    font-size: 50px;
+    font-family: "Lobster";
+  }
+}
+
+.card__def {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  width: 100%;
+  gap: 10px;
+
+  &>img {
+    width: 600px;
+    height: 360px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+  }
+
+  &>h3 {
+    font-family: "Lobster";
+    font-weight: 400;
+    color: #0FB1C3;
+    font-size: 35px;
+  }
+
+  &>.btn {
+    margin-top: 20px;
+  }
+}
+
+.category__list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 60px 20px;
+
+  & li {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    width: 100%;
+    gap: 10px;
+
+    & img {
+      width: 600px;
+      height: 360px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 10px;
+    }
+
+    & h3 {
+      font-weight: 400;
+      font-family: "Lobster";
+      font-size: 35px;
+      color: #0FB1C3;
+    }
+
+    & p {
+      font-size: 20px;
+    }
+
+    & .btn {
+      margin-top: 20px;
+    }
+  }
+}
+
+.title__sec {
+  font-family: "Lobster";
+  font-weight: 400;
+  font-size: 35px;
+}
+
+.span__text {
+  font-family: "Lobster";
+  color: #0FB1C3;
+}
+
+.popup {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+
+  &.active{
+    visibility: visible;
+    opacity: 1;
+  }
+
+  & .over{
+    position: absolute;
+    z-index: 10;
+    background-color: #242d3656;
+    width: inherit;
+    height: inherit;
+    cursor: pointer;
+  }
+
+  & .main{
+    position: relative;
+    z-index: 11;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    max-width: 720px;
+    width: 100%;
+
+    & form{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 20px;
+
+      & .btn{
+        margin: 40px auto 0 auto;
+      }
+    }
+  }
+}
